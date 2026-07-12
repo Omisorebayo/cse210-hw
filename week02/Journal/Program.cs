@@ -1,3 +1,11 @@
+
+// Creativity:
+// I exceeded the core requirements by adding a Mood field to each journal entry.
+// Users can record how they were feeling when writing each journal entry.
+// The mood is displayed and saved to the file along with the date, prompt, and response.
+
+
+
 using System;
 
 class Program
@@ -12,13 +20,13 @@ class Program
         while (choice != 5)
         {
             Console.WriteLine();
-            Console.WriteLine("Menu Options:");
+            Console.WriteLine("Please select one of the following choices:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Save");
             Console.WriteLine("4. Load");
             Console.WriteLine("5. Quit");
-            Console.Write("Select a choice from the menu: ");
+            Console.Write("What would you like to do? ");
 
             choice = int.Parse(Console.ReadLine());
 
@@ -30,13 +38,16 @@ class Program
                     Console.WriteLine();
                     Console.WriteLine(prompt);
                     Console.Write("> ");
-
                     string response = Console.ReadLine();
+
+                    Console.Write("How are you feeling today? ");
+                    string mood = Console.ReadLine();
 
                     Entry newEntry = new Entry();
                     newEntry._date = DateTime.Now.ToShortDateString();
                     newEntry._promptText = prompt;
                     newEntry._entryText = response;
+                    newEntry._mood = mood;
 
                     journal.AddEntry(newEntry);
 
@@ -48,7 +59,7 @@ class Program
                     break;
 
                 case 3:
-                    Console.Write("Enter the filename: ");
+                    Console.Write("What is the filename? ");
                     string saveFile = Console.ReadLine();
 
                     journal.SaveToFile(saveFile);
@@ -57,7 +68,7 @@ class Program
                     break;
 
                 case 4:
-                    Console.Write("Enter the filename: ");
+                    Console.Write("What is the filename? ");
                     string loadFile = Console.ReadLine();
 
                     journal.LoadFromFile(loadFile);

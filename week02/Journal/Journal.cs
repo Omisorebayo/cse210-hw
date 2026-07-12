@@ -25,7 +25,7 @@ public class Journal
         {
             foreach (Entry entry in entries)
             {
-                writer.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
+                writer.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}|{entry._mood}");
             }
         }
     }
@@ -42,13 +42,14 @@ public class Journal
             {
                 string[] parts = line.Split('|');
 
-                if (parts.Length == 3)
+                if (parts.Length == 4)
                 {
                     Entry entry = new Entry
                     {
                         _date = parts[0],
                         _promptText = parts[1],
-                        _entryText = parts[2]
+                        _entryText = parts[2],
+                        _mood = parts[3]
                     };
 
                     entries.Add(entry);
