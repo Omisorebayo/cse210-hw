@@ -1,4 +1,3 @@
-
 public class Word
 {
     private string _text;
@@ -9,6 +8,7 @@ public class Word
         _text = text;
         _isHidden = false;
     }
+
     public void Hide()
     {
         _isHidden = true;

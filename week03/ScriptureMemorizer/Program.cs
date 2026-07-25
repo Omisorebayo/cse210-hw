@@ -38,11 +38,11 @@ class Program
             Console.WriteLine(scripture.GetDisplayText());
             Console.WriteLine();
 
-            Console.Write("Press Enter to continue or type 'quit': ");
+            Console.Write("Press Enter to continue or type 'quit' to finish: ");
 
             string input = Console.ReadLine();
 
-            if (input.ToLower() == "quit")
+            if (string.Equals(input, "quit", StringComparison.OrdinalIgnoreCase))
             {
                 break;
             }
@@ -52,7 +52,6 @@ class Program
 
         Console.Clear();
         Console.WriteLine(scripture.GetDisplayText());
-
         Console.WriteLine();
         Console.WriteLine("Program ended.");
     }
